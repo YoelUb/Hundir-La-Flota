@@ -4,12 +4,23 @@
 ## DIAGRAMA DE CLASES
 
 
+![Diagrama_Clases.png](DOCS/Arquitectura/Diagrama_Clases.png)
 
 
-DIAGRAMA DE COMPONENTES
+
+## DIAGRAMA DE COMPONENTES
 
 
-DIGRAMA DE OBJETOS 
+![Diagrama_Componentes.png](DOCS/Arquitectura/Diagrama_Componentes.png)
+
+
+
+## DIGRAMA DE OBJETOS 
+
+
+![Diagrama_Objetos.png](DOCS/Arquitectura/Diagrama_Objetos.png)
+
+
 
 ---
 
