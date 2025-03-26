@@ -1,0 +1,32 @@
+@startuml
+skinparam objectAttributeIconSize 0
+
+object player1
+object player2
+
+object board1
+object board2
+
+object cellA1
+object cellB2
+
+object "frigate" as "Frigate"
+object battleship as "Battleship"
+
+object grafo as "GrafoPuertos"
+object puerto1 as "Puerto A"
+object puerto2 as "Puerto B"
+
+player1 --> board1
+player2 --> board2
+
+board1 --> cellA1
+board2 --> cellB2
+
+cellA1 --> battleship
+cellB2 --> frigate
+
+grafo --> puerto1
+grafo --> puerto2
+
+@enduml

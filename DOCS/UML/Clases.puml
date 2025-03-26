@@ -1,0 +1,70 @@
+@startuml
+
+class BattleshipBuilder {
+  String name
+}
+class Frigate {
+}
+class Ship {
+  String name
+  int size
+  List<Boolean> hitPositions
+}
+class ShipDirector {
+}
+interface ShipBuilder {}
+class Canoe {
+}
+class FrigateBuilder {
+  String name
+}
+class Battleship {
+}
+class CanoeBuilder {
+  String name
+}
+class BarcoHashManager {
+  HashTable<HashTable<BarcoInfo>> tipoTabla
+}
+class BarcoInfo {
+}
+class HashTable {
+  int size
+}
+class Puerto {
+}
+class GrafoPuertos {
+}
+class GameManager {
+}
+class Player {
+}
+class Board {
+}
+class Cell {
+  Ship ship
+  boolean hit
+  int positionInShip
+}
+
+' === Herencia / Implementación ===
+ShipBuilder <|.. BattleshipBuilder
+ShipBuilder <|.. FrigateBuilder
+ShipBuilder <|.. CanoeBuilder
+Ship <|-- Frigate
+Ship <|-- Canoe
+Ship <|-- Battleship
+
+' === Composición / Uso ===
+Cell --> Ship
+Board --> Cell
+Player --> Board
+GameManager --> Player
+GameManager --> Board
+GameManager --> ShipDirector
+ShipDirector --> ShipBuilder
+BarcoHashManager --> HashTable
+HashTable --> BarcoInfo
+GrafoPuertos --> Puerto
+
+@enduml

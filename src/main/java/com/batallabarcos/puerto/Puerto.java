@@ -1,6 +1,6 @@
 package com.batallabarcos.puerto;
 
-class Puerto {
+public class Puerto {
     String nombre;
     public Puerto(String nombre) {
         this.nombre = nombre;

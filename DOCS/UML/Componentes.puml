@@ -1,0 +1,23 @@
+@startuml
+skinparam componentStyle rectangle
+
+' === Componentes ===
+component [core] as core
+component [barco] as barco
+component [juego] as juego
+component [tablero] as tablero
+component [puerto] as puerto
+component [hash] as hash
+
+' === Dependencias reales ===
+core --> barco
+core --> juego
+core --> puerto
+core --> hash
+
+juego --> barco
+juego --> tablero
+
+tablero --> barco
+
+@enduml
