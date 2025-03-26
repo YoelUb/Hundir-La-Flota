@@ -59,5 +59,5 @@
 1. Clonar el repositorio:
 
 ```bash
-git clone https://github.com/YoelUb/Hundir-La-Flota/e](https://github.com/YoelUb/Hundir-La-Flota)
+git clone https://github.com/YoelUb/Hundir-La-Flota
 cd BatallaBarcos
