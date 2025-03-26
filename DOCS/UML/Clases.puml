@@ -1,0 +1,91 @@
+@startuml
+
+
+<<interface>> Builder
++ setName(String): Builder
++ setType(ShipType): Builder
++ build(): Ship
+
+ShipBuilder implements Builder
++ setName(...)
++ setType(...)
++ build(): Ship
+
+Ship <|-- Battleship
+Ship <|-- Frigate
+Ship <|-- Canoe
+
+abstract class ShipBuilder {
+    # name: String
+
+    + setName(name: String): ShipBuilder
+    + build(): Ship
+}
+
+
+class Battleship {
+    + Builder
+}
+
+class Frigate {
+    + Builder
+}
+
+class Canoe {
+    + Builder
+}
+
+' RELACIONES
+Battleship -|> Ship
+Frigate -|> Ship
+Canoe -|> Ship
+
+Battleship .. ShipBuilder
+Frigate .. ShipBuilder
+Canoe .. ShipBuilder
+
+
+class Player {
+    - name: String
+    - ships: List<Ship>
+    - board: Board
+
+    + attack(opponent: Player): void
+    + hasLost(): boolean
+    + placeShip(ship: Ship, position): void
+}
+
+
+class Board {
+    - grid: Cell[][]
+
+    + placeShip(ship: Ship, x: int, y: int, direction: String): boolean
+    + receiveAttack(x: int, y: int): boolean
+}
+
+class Cell {
+    - ship: Ship
+    - hit: boolean
+
+    + isHit(): boolean
+    + getShip(): Ship
+}
+
+
+class GameManager {
+    - player1: Player
+    - player2: Player
+
+    + startGame(): void
+    + takeTurn(): void
+    + isGameOver(): boolean
+    + declareWinner(): void
+}
+
+' RELACIONES
+Player --> Board
+Board --> Cell
+Player --> "0..*" Ship
+GameManager --> Player
+
+@enduml
