@@ -4,6 +4,7 @@ import com.batallabarcos.barco.Ship;
 import com.batallabarcos.barco.ShipDirector;
 import com.batallabarcos.juego.GameManager;
 import com.batallabarcos.juego.Player;
+import com.batallabarcos.puerto.GrafoPuertos;
 
 public class Main {
     public static void main(String[] args) {
@@ -30,5 +31,25 @@ public class Main {
 
         GameManager game = new GameManager(p1, p2);
         game.startGame();
+
+        System.out.println("\n=== LOGÍSTICA NAVAL ===");
+        GrafoPuertos logistica = new GrafoPuertos();
+
+        logistica.agregarPuerto("Madero");
+        logistica.agregarPuerto("Rodas");
+        logistica.agregarPuerto("Genova");
+        logistica.agregarPuerto("Marsella");
+        logistica.agregarPuerto("Lisboa");
+
+        logistica.conectar("Madero", "Genova", 7);
+        logistica.conectar("Madero", "Marsella", 5);
+        logistica.conectar("Genova", "Rodas", 10);
+        logistica.conectar("Marsella", "Lisboa", 3);
+        logistica.conectar("Lisboa", "Rodas", 6);
+
+        logistica.dfs("Madero");
+        logistica.caminoMasCorto("Madero", "Rodas");
+        logistica.eliminarPuertoMayorGrado();
+
     }
 }
